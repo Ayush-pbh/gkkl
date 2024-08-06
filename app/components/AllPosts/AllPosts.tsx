@@ -13,7 +13,7 @@ interface PostProp {
 async function fetchPosts(): Promise<PostProp[]> {
     // Use the new fetch options for App Router
     const res = await fetch(
-        "https://gkkl-bog11qku1-ayush-pbhs-projects.vercel.app/api/post",
+        "https://gkkl-ayush-pbhs-projects.vercel.app/api/post/",
         {
             cache: "no-store",
         }

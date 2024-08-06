@@ -16,7 +16,7 @@ interface Props {
 async function fetchPosts(id: string): Promise<PostProp> {
     // Use the new fetch options for App Router
     const res = await fetch(
-        "https://gkkl-bog11qku1-ayush-pbhs-projects.vercel.app/api/post/" + id,
+        "https://gkkl-ayush-pbhs-projects.vercel.app/api/post/" + id,
         {
             cache: "no-store",
         }
@@ -86,7 +86,7 @@ export async function generateMetadata({
     return {
         openGraph: {
             title: data.title,
-            images: `https://gkkl-bog11qku1-ayush-pbhs-projects.vercel.app/api/post/og/${data._id}`,
+            images: `https://gkkl-ayush-pbhs-projects.vercel.app/api/post/og/${data._id}`,
         },
     };
 }
