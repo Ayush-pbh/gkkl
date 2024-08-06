@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createCanvas, loadImage, registerFont } from "canvas";
 import path from "path";
 import fs from "fs";
+// D
 export async function GET(
     request: NextRequest,
     { params }: { params: { postid: string } }
