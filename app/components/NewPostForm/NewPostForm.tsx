@@ -23,8 +23,7 @@ const NewPostForm = () => {
     // Functions
     const handleImageUpload = () => {};
 
-    const handlePostCreation = async (event: FormEvent) => {
-        event.preventDefault();
+    const handlePostCreation = async () => {
         const data = {
             postTitle: postTitleRef.current?.value,
             postContent: postContentRef.current?.value,
@@ -39,10 +38,7 @@ const NewPostForm = () => {
 
     return (
         <div className="mt-10">
-            <form
-                onSubmit={handlePostCreation}
-                className="flex flex-col items-center justify-center"
-            >
+            <div className="flex flex-col items-center justify-center">
                 <div className="form-control w-full max-w-xl">
                     <div className="label">
                         <span className="label-text">Post Title</span>
@@ -111,11 +107,16 @@ const NewPostForm = () => {
                     </CldUploadWidget>
                 </div>
                 <div className="form-control w-full max-w-xl mt-6 flex">
-                    <button className="btn btn-solid btn-primary ">
+                    <button
+                        className="btn btn-solid btn-primary "
+                        onClick={() => {
+                            handlePostCreation();
+                        }}
+                    >
                         Create Post
                     </button>
                 </div>
-            </form>
+            </div>
         </div>
     );
 };
