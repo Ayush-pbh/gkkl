@@ -1,0 +1,55 @@
+.nav_holder {
+    display: flex;
+    height: 70px;
+    width: 300px;
+    background-color: var(--secondary-mini-color);
+    position: fixed;
+    top: 20px;
+    left: calc(50% - 150px);
+    border-radius: 7px;
+    padding: 3px;
+    justify-content: space-evenly;
+    gap: 3px;
+    align-items: center;
+    box-shadow: 0px 4px 20px 0px #1111113b;
+    z-index: 20;
+}
+.nav_link {
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    border-radius: 7px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.35s ease;
+    color: gray;
+    text-decoration: none;
+}
+.nav_link:hover {
+    background-color: var(--secondary-mini-color-hover);
+}
+.nav_link.active {
+    background-color: var(--secondary-dark-color);
+    color: #111;
+}
+.media-logo-holder {
+    position: fixed;
+    height: 60px;
+    width: 60px;
+    top: 30px;
+    left: 20px;
+    z-index: 20;
+}
+/* For Phones */
+@media all and (max-width: 460px) {
+    .nav_holder {
+        height: 70px;
+        width: 200px;
+        left: calc(50% - 100px);
+    }
+    .nav_link {
+        font-size: 14px;
+    }
+}
