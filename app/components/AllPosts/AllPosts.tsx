@@ -12,9 +12,12 @@ interface PostProp {
 
 async function fetchPosts(): Promise<PostProp[]> {
     // Use the new fetch options for App Router
-    const res = await fetch("http://localhost:3000/api/post", {
-        cache: "no-store",
-    });
+    const res = await fetch(
+        "https://gkkl-bog11qku1-ayush-pbhs-projects.vercel.app/api/post",
+        {
+            cache: "no-store",
+        }
+    );
 
     if (!res.ok) {
         throw new Error("Failed to fetch posts");
