@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /* CSS Variables for colors, padding, Font Size, Font Family, etc. */
 :root {
     --primary-color: #9381ff;
