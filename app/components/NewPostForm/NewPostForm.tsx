@@ -4,7 +4,13 @@ import uploadImageDummy from "../../../public/upload_image_dummy.jpg";
 import Image from "next/image";
 import { CldUploadWidget } from "next-cloudinary";
 import axios from "axios";
-
+interface CloudinaryUploadWidgetInfo {
+    event: string;
+    info: {
+        secure_url: string;
+        // add other properties if necessary
+    };
+}
 const NewPostForm = () => {
     // States
     const [image, setImage] = useState<string | null>(null);
@@ -83,7 +89,10 @@ const NewPostForm = () => {
                     <CldUploadWidget
                         uploadPreset="iphtup80"
                         onSuccess={(result) => {
-                            if (result.event == "success" && result.info) {
+                            if (
+                                result.event == "success" &&
+                                typeof result.info === "object"
+                            ) {
                                 console.log("Upload Done!");
                                 setUploadedImageUrl(result.info.secure_url);
                             }
