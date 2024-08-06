@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import "./Navigation.css";
+import styles from "./Navigation.module.css";
 import Link from "next/link";
 import medialLogo from "../../../public/medial-black.png";
 import Image from "next/image";
@@ -13,24 +13,26 @@ const Navigation = () => {
 
     return (
         <>
-            <div className="nav_holder">
+            <div className={styles.navHolder}>
                 <Link
                     href="/"
-                    className={`nav_link ${pathname === "/" ? "active" : ""}`}
+                    className={`${styles.navLink} ${
+                        pathname === "/" ? styles.active : ""
+                    }`}
                 >
                     ALL POSTS
                 </Link>
 
                 <Link
                     href="/new"
-                    className={`nav_link ${
-                        pathname === "/post/new" ? "active" : ""
+                    className={`${styles.navLink} ${
+                        pathname === "/new" ? styles.active : ""
                     }`}
                 >
                     NEW POST
                 </Link>
             </div>
-            <div className="media-logo-holder">
+            <div className={styles.medialLogoHolder}>
                 <a href="https://medial.app" target="_blank">
                     <Image
                         src={medialLogo}
