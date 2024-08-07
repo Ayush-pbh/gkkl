@@ -80,7 +80,10 @@ export async function GET(
         const medialLogo = await loadImage(
             path.join(process.cwd(), "public", "medial-black.png")
         );
-
+        registerFont(path.join(process.cwd(), "public", "boska.ttf"), {
+            family: "boska",
+            weight: "bold",
+        });
         // VARIABLES
         if (imagePath != "none") {
             title = title.length > 62 ? title.substring(0, 62) + "..." : title;
@@ -129,7 +132,7 @@ export async function GET(
         ctx.restore(); // Restore the context to avoid clipping other elements
 
         // POST TITLE
-        ctx.font = "bold 35pt 'Inter'";
+        ctx.font = "bold 35pt 'boska'";
         ctx.textAlign = "left";
         ctx.fillStyle = "#fff";
         wrapText(ctx, title, 150, 90, 900, 60);
@@ -144,7 +147,7 @@ export async function GET(
         ctx.restore();
 
         // POST CONTENT
-        ctx.font = "bold 22pt 'Inter'";
+        ctx.font = "bold 22pt 'boska'";
         ctx.textAlign = "left";
         ctx.fillStyle = "gray";
         wrapText(ctx, content, 150, 240, 900, 36);
@@ -166,7 +169,7 @@ export async function GET(
             ctx.rotate((90 * Math.PI) / 180);
             ctx.scale(1, 1);
             // Medial App Link
-            ctx.font = " 22pt 'Inter'";
+            ctx.font = " 22pt 'boska'";
             ctx.textAlign = "left";
             ctx.fillStyle = "#3e3354";
             ctx.fillText(
@@ -199,7 +202,7 @@ export async function GET(
             ctx.restore();
 
             // Medial App Link
-            ctx.font = " 22pt 'Inter'";
+            ctx.font = " 22pt 'boska'";
             ctx.textAlign = "left";
             ctx.fillStyle = "#3e3354";
             ctx.fillText("medial.app", 520, 575);
@@ -210,7 +213,7 @@ export async function GET(
         ctx.translate(canvas.width / 2, canvas.height / 2);
         ctx.rotate((270 * Math.PI) / 180);
         ctx.scale(1, 1);
-        ctx.font = " 16pt 'Inter'";
+        ctx.font = " 16pt 'boska'";
         ctx.fillStyle = "gray";
         ctx.fillText(`@${author.replace(" ", "_")}`, 0, -515);
         ctx.restore();
