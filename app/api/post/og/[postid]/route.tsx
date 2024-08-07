@@ -234,12 +234,12 @@ export async function GET(
         );
 
         // Ensure the directory exists
-        if (!fs.existsSync(path.dirname(filePath))) {
-            fs.mkdirSync(path.dirname(filePath), { recursive: true });
-        }
+        // if (!fs.existsSync(path.dirname(filePath))) {
+        //     fs.mkdirSync(path.dirname(filePath), { recursive: true });
+        // }
 
         // Save the buffer to a file
-        fs.writeFileSync(filePath, buffer);
+        // fs.writeFileSync(filePath, buffer);
         return buffer;
         // return buffer;
     }
