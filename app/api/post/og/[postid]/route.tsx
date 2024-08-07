@@ -80,8 +80,8 @@ export async function GET(
         const medialLogo = await loadImage(
             path.join(process.cwd(), "public", "medial-black.png")
         );
-        registerFont(path.join(process.cwd(), "public", "boska.ttf"), {
-            family: "boska",
+        registerFont(path.join(process.cwd(), "public", "SatoshiBold.otf"), {
+            family: "santoshi",
             weight: "bold",
         });
         // VARIABLES
@@ -132,7 +132,7 @@ export async function GET(
         ctx.restore(); // Restore the context to avoid clipping other elements
 
         // POST TITLE
-        ctx.font = "bold 35pt 'boska'";
+        ctx.font = "bold35pt 'santoshi'";
         ctx.textAlign = "left";
         ctx.fillStyle = "#fff";
         wrapText(ctx, title, 150, 90, 900, 60);
@@ -147,7 +147,7 @@ export async function GET(
         ctx.restore();
 
         // POST CONTENT
-        ctx.font = "bold 22pt 'boska'";
+        ctx.font = "bold22pt 'santoshi'";
         ctx.textAlign = "left";
         ctx.fillStyle = "gray";
         wrapText(ctx, content, 150, 240, 900, 36);
@@ -169,7 +169,7 @@ export async function GET(
             ctx.rotate((90 * Math.PI) / 180);
             ctx.scale(1, 1);
             // Medial App Link
-            ctx.font = " 22pt 'boska'";
+            ctx.font = "22pt 'santoshi'";
             ctx.textAlign = "left";
             ctx.fillStyle = "#3e3354";
             ctx.fillText(
@@ -202,7 +202,7 @@ export async function GET(
             ctx.restore();
 
             // Medial App Link
-            ctx.font = " 22pt 'boska'";
+            ctx.font = "22pt 'santoshi'";
             ctx.textAlign = "left";
             ctx.fillStyle = "#3e3354";
             ctx.fillText("medial.app", 520, 575);
@@ -213,7 +213,7 @@ export async function GET(
         ctx.translate(canvas.width / 2, canvas.height / 2);
         ctx.rotate((270 * Math.PI) / 180);
         ctx.scale(1, 1);
-        ctx.font = " 16pt 'boska'";
+        ctx.font = "16pt 'santoshi'";
         ctx.fillStyle = "gray";
         ctx.fillText(`@${author.replace(" ", "_")}`, 0, -515);
         ctx.restore();
@@ -263,16 +263,16 @@ export async function GET(
             `${params.postid}.png`
         );
 
-        // Check if the image already exists
-        if (fs.existsSync(filePath)) {
-            // Read the existing file
-            const existingImage = fs.readFileSync(filePath);
-            return new NextResponse(existingImage, {
-                headers: {
-                    "Content-Type": "image/png",
-                },
-            });
-        }
+        // // Check if the image already exists
+        // if (fs.existsSync(filePath)) {
+        //     // Read the existing file
+        //     const existingImage = fs.readFileSync(filePath);
+        //     return new NextResponse(existingImage, {
+        //         headers: {
+        //             "Content-Type": "image/png",
+        //         },
+        //     });
+        // }
         const imageBuffer = await generateOGImage(
             post.title,
             post.content,

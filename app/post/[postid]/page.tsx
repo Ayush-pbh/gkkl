@@ -76,7 +76,17 @@ export async function generateMetadata({
     return {
         openGraph: {
             title: data.title,
+            description: data.content.substring(0, 100),
             images: `https://gkkl-ayush-pbhs-projects.vercel.app/api/post/og/${data._id}`,
+        },
+        twitter: {
+            card: "summary",
+            site: "@ayushthought",
+            creator: "@ayushthought",
+            creatorId: "@ayushthought",
+            description: data.content.substring(0, 100),
+            images: `https://gkkl-ayush-pbhs-projects.vercel.app/api/post/og/${data._id}`,
+            title: data.title,
         },
     };
 }
