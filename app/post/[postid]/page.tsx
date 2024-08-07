@@ -80,7 +80,7 @@ export async function generateMetadata({
             images: `https://gkkl-ayush-pbhs-projects.vercel.app/api/post/og/${data._id}`,
         },
         twitter: {
-            card: "summary",
+            card: "summary_large_image",
             site: "@ayushthought",
             creator: "@ayushthought",
             creatorId: "@ayushthought",
